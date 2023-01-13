@@ -20,7 +20,7 @@ const App = () => {
   const [childClicked, setChildClicked] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [darkmode,setDarkmode]=useState('white');
+  const [darkmode,setDarkmode]=useState('#22303C');
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
       setCoords({ lat: latitude, lng: longitude });

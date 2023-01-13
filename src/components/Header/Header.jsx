@@ -10,12 +10,12 @@ import useStyles from './styles.js';
 const Header = ({ onPlaceChanged, onLoad ,darkmode,setDarkmode,coords,setCoords}) => {
   const classes = useStyles();
 const [mode,setMode]=useState(true);
-const [theme,setTheme]=useState('Dark Mode');
+
 const [finder,setFinder]=useState('');
 const modeselect=()=>{
   setMode(!mode);
-  mode?setDarkmode('#22303C'):setDarkmode('white')
-  mode?setTheme('Light Mode'):setTheme('Dark Mode')
+  mode?setDarkmode('white'):setDarkmode('#22303C')
+  
 }
 const locationfinder=()=>{
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${finder}&APPID=c5683b302c632e36712b8bf1043fb4ea&units=metric`)
@@ -49,7 +49,7 @@ const locationfinder=()=>{
                <button onClick={locationfinder} style={{backgroundColor:'brown',color:'white',borderColor:'brown'}}><SearchIcon/></button>
               
             </div>
-          <Switch  onClick={modeselect}/>
+          <Switch defaultChecked onClick={modeselect}/>
         </Box>
        
       </Toolbar>
